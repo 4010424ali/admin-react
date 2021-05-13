@@ -1,14 +1,14 @@
-import { Configuration, LogLevel } from "@azure/msal-browser";
+import { Configuration, LogLevel } from '@azure/msal-browser';
 
 const AzureActiveDirectoryAppClientId: any =
-  process.env.REACT_APP_AZURE_ACTIVE_DIRECTORY_APP_CLIENT_ID;
+  'fda02b0d-3763-42b2-9da4-1cc39c1492ef';
 
 export const MSAL_CONFIG: Configuration = {
   auth: {
     clientId: AzureActiveDirectoryAppClientId,
   },
   cache: {
-    cacheLocation: "sessionStorage",
+    cacheLocation: 'sessionStorage',
     storeAuthStateInCookie: false,
   },
   system: {
