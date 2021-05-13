@@ -1,5 +1,6 @@
 import React from "react";
 import { Admin, Resource } from "react-admin";
+import axios from 'axios';
 import PostList from "./components/PostList";
 import PostCreate from "./components/PostCreate";
 import PostEdit from "./components/PostEdit";
@@ -34,6 +35,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "black;",
   },
 }));
+
+axios.defaults.baseURL = 'https://immense-temple-99871.herokuapp.com';
 
 function App() {
   // current authenticated user
