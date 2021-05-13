@@ -1,0 +1,51 @@
+{
+  "name": "client",
+  "proxy": "https://immense-temple-99871.herokuapp.com",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@azure/msal-browser": "^2.13.0",
+    "@material-ui/core": "^4.11.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/styled-components": "^5.1.9",
+    "axios": "^0.21.1",
+    "http-proxy-middleware": "^1.0.6",
+    "ra-data-simple-rest": "^3.9.1",
+    "react": "^16.13.1",
+    "react-admin": "^3.9.2",
+    "react-admin-import-csv": "^1.0.16",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.2.1",
+    "typescript": "^4.2.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "jisc-innovation-mui-components": "^0.7.6"
+  }
+}
