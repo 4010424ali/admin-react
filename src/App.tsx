@@ -58,7 +58,7 @@ function App() {
           <Admin
             theme={theme}
             layout={MyLayout}
-            dataProvider={simpleRestProvider("http://localhost:3000")}          >
+            dataProvider={simpleRestProvider("https://immense-temple-99871.herokuapp.com")}          >
             <Resource
               name="ChatRooms"
               list={PostList}
