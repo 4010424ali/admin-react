@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 import {
   List,
@@ -19,10 +20,6 @@ const PostList = (props) => {
     axios.post(`SendInvites/${id}`);
   };
 
-  const redirect = (id) => {
-    window.location.href = `http://localhost:3001/${id}`;
-  };
-
   return (
     <List {...props}>
       <Datagrid>
@@ -31,13 +28,27 @@ const PostList = (props) => {
         <TextField source="createdAt"></TextField>
         <FunctionField
           render={(record) => {
+            return record.secureUrl ? (
+                <a rel="noopener noreferrer" href={`https://open-huddle.netlify.app/u/${record.secureUrl}`} target="_blank"><button>View</button></a>
+            )
+            :
+            (
+                <a rel="noopener noreferrer" href={`https://open-huddle.netlify.app/${record.id}`} target="_blank"><button>View</button></a>
+            );
+          }}
+        />
+        <FunctionField
+          render={(record) => {
             return (
-              <button onClick={() => redirect(record.id)}>
-                View Chat Room
+              <button>
+                <CopyToClipboard text={record.secureUrl ? `https://open-huddle.netlify.app/u/${record.secureUrl}`:`https://open-huddle.netlify.app/${record.id}`}>
+                <span>Copy to clipboard</span>
+                </CopyToClipboard>
               </button>
             );
           }}
         />
+
         <FunctionField
           render={(record) => {
             return (

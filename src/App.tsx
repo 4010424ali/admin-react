@@ -40,7 +40,7 @@ axios.defaults.baseURL = 'https://immense-temple-99871.herokuapp.com';
 
 function App() {
   // current authenticated user
-  const [currentUser, setCurrentUser] = useState<AccountInfo>();
+  const [currentUser, setCurrentUser] = useState<AccountInfo>(JSON.parse(localStorage.getItem("user") || '{}'));
 
   const onAuthenticated = async (userAccountInfo: AccountInfo) => {
     setCurrentUser(userAccountInfo);
@@ -53,12 +53,13 @@ function App() {
       <div id="App">
         
 
-    {currentUser ? 
+    {currentUser && currentUser.localAccountId ? 
         <div>
           <Admin
             theme={theme}
             layout={MyLayout}
-            dataProvider={simpleRestProvider("https://immense-temple-99871.herokuapp.com")}          >
+            dataProvider={simpleRestProvider("https://immense-temple-99871.herokuapp.com")}            
+            >
             <Resource
               name="ChatRooms"
               list={PostList}

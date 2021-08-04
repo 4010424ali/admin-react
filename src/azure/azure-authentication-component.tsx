@@ -15,10 +15,11 @@ const isIE = msie > 0 || msie11 > 0;
 // Log In, Log Out button
 const AzureAuthenticationButton = ({ onAuthenticated }: any): JSX.Element => {
   // Azure client context
+  
   const authenticationModule: AzureAuthenticationContext = new AzureAuthenticationContext();
 
   const [authenticated, setAuthenticated] = useState<Boolean>(false);
-  const [user, setUser] = useState<AccountInfo>();
+  const [user, setUser] = useState<AccountInfo>(JSON.parse(localStorage.getItem("user") || '{}'));
 
   const logIn = (method: string): any => {
     const typeName = "loginPopup";
@@ -30,6 +31,7 @@ const AzureAuthenticationButton = ({ onAuthenticated }: any): JSX.Element => {
   const logOut = (): any => {
     if (user) {
       onAuthenticated(undefined);
+      localStorage.removeItem("user");
       // Azure Logout
       authenticationModule.logout(user);
     }
@@ -37,6 +39,7 @@ const AzureAuthenticationButton = ({ onAuthenticated }: any): JSX.Element => {
 
   const returnedAccountInfo = (user: AccountInfo) => {
     // set state
+    localStorage.setItem("user", JSON.stringify(user));
     setAuthenticated(user?.name ? true : false);
     onAuthenticated(user);
     setUser(user);
