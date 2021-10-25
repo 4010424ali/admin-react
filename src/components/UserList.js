@@ -61,10 +61,10 @@ const handleSubmit = (e) => {
     <List {...props} /* actions={<ListActions />} */>
       <SimpleForm onSubmit={handleSubmit}>
       <h1>Send Invites</h1>
-      <ReferenceInput label="Select Huddle" source="title" reference="ChatRooms"> 
+     {/*  <ReferenceInput label="Select Huddle" source="title" reference="ChatRooms"> 
         <SelectInput optionText="title" id="title" value={title} onChange={handleClick}>
         </SelectInput>
-        </ReferenceInput>
+        </ReferenceInput> */}
       <Datagrid onChange={handleClick} value={email} >
         <TextField source='id' />
         <EmailField source='email_address' />

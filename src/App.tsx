@@ -66,12 +66,12 @@ function App() {
               create={PostCreate}
               edit={PostEdit}
             />
-            <Resource
+          {/*   <Resource
               name="users_emails"
               list={UserList}
               create={UserCreate}
               edit={UserEdit}
-            />
+            /> */}
           </Admin>
         </div>:  <JiscBoombox>
                 <Typography variant='h3'>Welcome to OpenHuddle Admin</Typography>

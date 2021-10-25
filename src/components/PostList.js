@@ -2,6 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import Moment from 'react-moment';
+
 
 import {
   List,
@@ -25,15 +27,15 @@ const PostList = (props) => {
       <Datagrid>
         <TextField source="id" />
         <TextField source="name" />
-        <TextField source="createdAt"></TextField>
+        <TextField source="createdAt"><Moment format="MMMM Do YYYY, h:mm:ss a"> </Moment></TextField>
         <FunctionField
           render={(record) => {
             return record.secureUrl ? (
-                <a rel="noopener noreferrer" href={`https://open-huddle.netlify.app/u/${record.secureUrl}`} target="_blank"><button>View</button></a>
+                <a rel="noopener noreferrer" href={`https://open-huddle.netlify.app/u/${record.secureUrl}`} target="_blank"><button>Enter chatroom</button></a>
             )
             :
             (
-                <a rel="noopener noreferrer" href={`https://open-huddle.netlify.app/${record.id}`} target="_blank"><button>View</button></a>
+                <a rel="noopener noreferrer" href={`https://open-huddle.netlify.app/${record.id}`} target="_blank"><button>Enter Chatroom</button></a>
             );
           }}
         />
@@ -49,13 +51,13 @@ const PostList = (props) => {
           }}
         />
 
-        <FunctionField
+  {/*       <FunctionField
           render={(record) => {
             return (
               <button onClick={() => handleClick(record.id)}>Send Email</button>
             );
           }}
-        />
+        /> */}
 
         <EditButton basePath="/ChatRooms" />
         <DeleteButton basePath="/ChatRooms" />
