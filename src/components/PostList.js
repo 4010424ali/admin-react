@@ -23,12 +23,12 @@ const PostList = (props) => {
   };
 
   return (
-    <List {...props}>
+    <List {...props} exporter={false} pagination={false}>
       <Datagrid>
         <TextField source="id" />
         <TextField source="name" />
-        <TextField source="createdAt"><Moment format="MMMM Do YYYY, h:mm:ss a"> </Moment></TextField>
-        <FunctionField
+{/*         <TextField source="createdAt"></TextField>
+ */}        <FunctionField
           render={(record) => {
             return record.secureUrl ? (
                 <a rel="noopener noreferrer" href={`https://open-huddle.netlify.app/u/${record.secureUrl}`} target="_blank"><button>Enter chatroom</button></a>
