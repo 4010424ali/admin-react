@@ -49,6 +49,7 @@ const AzureAuthenticationButton = ({ onAuthenticated }: any): JSX.Element => {
     return (
 
       <Button id="authenticationButton" onClick={() => logIn("loginPopup")}>
+        Login
       </Button>
     );
   };
